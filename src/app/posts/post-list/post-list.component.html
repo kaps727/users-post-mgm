@@ -1,0 +1,15 @@
+<div class="row">
+  <div class="col-xs-12">
+    
+    <ng-container *ngComponentOutlet="PostEditComponent"></ng-container>
+    
+
+    <app-post-item 
+      *ngFor="let postEl of posts; let i=index"
+      [post]="postEl"
+      [idx]="i"
+      [attr.id]="'post'+i">
+    </app-post-item>
+
+    <!-- <app-post-edit [postId]="id" *ngIf="!(id==-1)"></app-post-edit> -->
+</div>

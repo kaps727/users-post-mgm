@@ -1,0 +1,25 @@
+<div class="list-group-item clearfix" routerLinkActive="active" style="cursor: pointer;" (click)="toggleElement()">
+  <div class="pull-left">
+    <h4 class="list-group-item-heading">{{ post.title }}</h4>
+  </div>
+  <div [ngClass]="{ 'glyphicon-chevron-down': toggle === '',
+                   'glyphicon-chevron-up': toggle === 'active'}"
+                   class="glyphicon"
+                   style="display: inline-flex; padding-left: inherit"></div>
+  <div class="pull-right">
+    <small>
+            <div *ngIf="isAuthenticated()"><b>Last Modified :</b>  {{ post.modifiedAt | date: 'medium' }}
+              <br>
+            </div>
+            <b>Author :</b> {{ post.author | uppercase }}
+    </small>
+  </div>
+
+</div>
+
+<div class="list-group-item clearfix" *ngIf="toggle" [@fadeInOut]>
+  <div class="col-xs-12">
+    <p class="list-group-item-body">{{ post.content }}</p>
+    <button class="btn btn-primary" style="margin-right: 2px;" (click)="onEdit(idx)" *ngIf="isAuthenticated()">Edit</button>
+  </div>
+</div>

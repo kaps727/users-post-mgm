@@ -1,0 +1,24 @@
+<div *ngIf="edit" [@fadeInOut]>
+  <div class="list-group-item clearfix" routerLinkActive="active" style="cursor: pointer;">
+    <div class="pull-left">
+      <input class="list-group-item-heading" type="text" [(value)]="postTitle" placeholder="Post Title">
+    </div>
+    <!-- <div class="pull-right">
+      <b>Last Modified :</b>
+      <small> {{ post.lastModified | date: 'medium' }} </small>
+    </div> -->
+  </div>
+
+  <div class="list-group-item clearfix">
+    <div class="col-xs-12">
+      <textarea class="list-group-item-body"
+                rows="4"
+                style="margin: 0%; width: 100%;"
+                [(ngModel)]="postContent"
+                placeholder="Post Content"></textarea>
+      <button class="btn btn-success" style="margin-right: 2px;" (click)="onSave(postId)">Save</button>
+      <button class="btn btn-danger" style="margin-right: 2px;" (click)="onDelete(postId)">Delete</button>
+      <button class="btn btn-default" style="margin-right: 2px;" (click)="onCancel(postId)">Cancel</button>
+    </div>
+  </div>
+</div>
